@@ -256,6 +256,16 @@ footer a { text-decoration: none; color: var(--title); }
   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
   ym(113666920, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
 </script>
+<script>
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a || typeof ym !== 'function') return;
+    var h = a.getAttribute('href');
+    if (h.indexOf('homereserve.ru') !== -1) ym(113666920, 'reachGoal', 'booking_click');
+    else if (h.indexOf('wa.me') !== -1) ym(113666920, 'reachGoal', 'whatsapp_click');
+    else if (h.indexOf('tel:') === 0) ym(113666920, 'reachGoal', 'phone_click');
+  });
+</script>
 <!-- /Yandex.Metrika counter -->
 </head>
 <body>
